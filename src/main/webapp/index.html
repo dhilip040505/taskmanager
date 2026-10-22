@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+   
+</head>
+<body style="background-color: #2dbccf;">
+    <header class="header">
+       <div id="title">
+        <h1 style="font-size: 50px;">Task Manager</h1>
+        <p>Manage your projects and tasks in one place.</p>
+        </div>
+    </header>
+
+ 
+<main class="container">
+
+    <!-- PROJECT SECTION: shown first -->
+    <section id="projectSection">
+
+        <div class="section-heading">
+            <div>
+                <h2>Your Projects</h2>
+                <p style="background-color: white;width:35%;border-color: #03515c; ">Organize your work and track your progress.</p>
+            </div>
+
+            <button id="addProjectButton" type="button">
+                + Add New Project
+            </button>
+        </div>
+
+        <p id="projectMessage">Loading projects...</p>
+
+        <!-- Project creation form: hidden initially -->
+        <form id="projectForm" class="task-form" hidden>
+            <h3 id="projectFormTitle">Create New Project</h3>
+
+            <label for="projectName">Project Name</label>
+            <input
+                type="text"
+                id="projectName"
+                maxlength="150"
+                required
+                placeholder="Enter project name"
+            >
+
+            <label for="projectDescription">Description</label>
+            <textarea
+                id="projectDescription"
+                placeholder="Describe your project"
+            ></textarea>
+
+            <button type="submit" id="saveProjectButton">
+                Save Project
+            </button>
+
+            <button type="button" id="cancelProjectButton">
+                Cancel
+            </button>
+
+            <p id="projectFormMessage" role="status"></p>
+        </form>
+
+        <div id="projects" class="project-grid"></div>
+    </section>
+
+    <!-- TASK SECTION: hidden until a project is selected -->
+    <section id="taskSection" hidden>
+
+        <button id="backButton" type="button">
+            <-- Back to Projects
+        </button>
+         <div class="section-heading">
+        <div>
+            <h2 id="selectedProjectTitle">Project Tasks</h2>
+            <p>View and manage tasks for this project.</p>
+        </div>
+        <button id="createTaskButton" type="button">
+            + Create Task
+        </button>
+    </div>
+
+        
+        <p id="taskMessage"></p>
+
+        <form id="taskForm" class="task-form" hidden>
+            <h3>Create a New Task</h3>
+
+            <label for="taskTitle">Task Title</label>
+            <input
+                type="text"
+                id="taskTitle"
+                maxlength="150"
+                required
+                placeholder="Enter task title"
+            >
+
+            <label for="taskDescription">Description</label>
+            <textarea
+                id="taskDescription"
+                placeholder="Describe your task"
+            ></textarea>
+
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM" selected>Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+
+            <label for="taskDueDate">Due Date</label>
+            <input type="date" id="taskDueDate">
+
+            <button type="submit" id="createTaskButton">
+                Create Task
+            </button>
+            <button type="button" id="cancelTaskButton">Cancel</button>
+
+            <p id="formMessage" role="status"></p>
+        </form>
+
+         <div id="tasks" class="task-grid"></div>
+    </section>
+
+</main>
+
+</body>
+</html>
